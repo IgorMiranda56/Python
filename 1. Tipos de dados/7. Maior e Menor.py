@@ -25,6 +25,21 @@ if primeiroNumero < segundoNumero:
     print(f"Menor número: {primeiroNumero}")
 elif segundoNumero < primeiroNumero:
     print(f"Menor número: {segundoNumero}")
-  
 
+if primeiroNumero == segundoNumero:
+    print(f"Os números são iguais.")
+"""
+maiorNumero = max(primeiroNumero, segundoNumero)
+menorNumero = min(primeiroNumero, segundoNumero)
+
+if primeiroNumero > segundoNumero:
+    maiorNumero = primeiroNumero
+else:
+    maiorNumero = segundoNumero
+
+if primeiroNumero < segundoNumero:
+    menorNumero = primeiroNumero
+else:
+    menorNumero = segundoNumero
+"""
 
