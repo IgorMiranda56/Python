@@ -4,26 +4,31 @@ import os
 
 os.system("cls || clear")
 
-nome = str(input("Digite o nome do produto: "))
-produto = int(input("Digite 1 para Maçã ou 2 para Morango: "))
-quantidade = int(input("Digite a quantidade (em quilos) do produto: "))
+pesoMaca = float(input("Digite a quantidade de maçã (em quilos) do produto: "))
+pesoMorango = float(input("Digite a quantidade de morango (em quilos) do produto: "))
 
-precoMaca = 2.50
-precoMorango = 1.50
+if pesoMaca < 5:
+    precoMaca = 1.80
+else:
+    precoMaca = 1.50
+if pesoMorango < 5:
+    precoMorango = 2.50
+else:
+    precoMorango = 2.20
 
-if quantidade <= 5 and produto == 1:
-    total = quantidade * 2.5
-    totalDesconto = (total * 0.02) - total
-elif quantidade > 5 and produto == 1:
-    total = quantidade * 2.2
-    totalDesconto = (total * 0.04) - total
-elif quantidade <= 5 and produto == 2:
-    total = quantidade * 1.5
-    totalDesconto = (total * 0.03) - total 
-elif quantidade > 5 and produto == 2:
-    total = quantidade * precoMorango
-    totalDesconto = (total * 0.05) - total
+pesoTotal = pesoMorango + pesoMaca
+subtotal = (precoMaca * precoMorango) + (precoMorango * precoMaca)
 
-print(f"Nome do produto: {nome}")
-print(f"Quantidade do produto: {quantidade}")
-print(f"Preço a pagar: R${totalPagar}")
+if pesoTotal > 8 or subtotal > 25:
+    desconto = subtotal * 0.10
+else: 
+    desconto = 0
+
+totalPagar = subtotal - desconto
+
+print(f"Peso das maçãs (em kg): {pesoMaca}")
+print(f"Peso dos morangos (em kg): {pesoMorango}")
+print(f"Soma dos pesos (em kg): {pesoTotal}")
+print(f"Subtotal: R$ {subtotal:.2f}")
+print(f"Desconto: R$ {desconto:.2f}")
+print(f"Total a pagar: R${totalPagar:.2f}")
