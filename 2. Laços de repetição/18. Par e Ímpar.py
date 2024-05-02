@@ -5,7 +5,7 @@ par = 0
 impar = 0
 
 for i in range(1,6):
-    numero = int(input(F"Digite o {i}º número: "))
+    numero = int(input(f"Digite o {i}º número: "))
     if numero % 2 == 0:
         par += 1
     else:
