@@ -17,10 +17,12 @@ for i in range(QUANTIDADE_NOTAS):
 
 media = soma / QUANTIDADE_NOTAS
 
-print(f"Média: {media}")
 if media >= 7:
-    print("Aprovado.")
+    resultado = "Aprovado."
 elif media >= 5:
-    print("Recuperação.")
+    resultado = "Recuperação."
 else:
-    print("Reprovado.")
+    resultado = "Reprovado."
+
+print(f"Média: {media}")
+print(f"Situação do aluno: {resultado}")
