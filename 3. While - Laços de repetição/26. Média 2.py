@@ -1,4 +1,5 @@
 import os
+import time
 os.system("cls || clear")
 
 soma = 0 
@@ -12,7 +13,9 @@ while True:
         soma += nota
     else:
         if contador == 0:
-            print("Digite novamente: ")
+            print("Digite novamente. ")
+            time.sleep(1)
+            os.system("clear")
         else:        
             break    
 
