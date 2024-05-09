@@ -1,27 +1,21 @@
 import os
-
 os.system("cls || clear")
 
 soma = 0 
 contador = 0
-"""
-while True: 
-    nota = float(input(f"Digite sua nota: "))
-    contador += 1
-    soma += nota
+
+while True:
+    nota = float(input("Digite sua nota: "))
+    
     if nota > 0:
-        nota = float(input(f"Digite sua nota: "))
-    else:
-        media = soma / contador
-        print(f"Média: {media}")
-        break
-"""
-while nota > 0:
-    nota = float(input(f"Digite sua nota: "))
-    if nota >= 0:
         contador+= 1
         soma += nota
+    else:
+        if contador == 0:
+            print("Digite novamente: ")
+        else:        
+            break    
 
-media = soma / contador
+media = soma / contador 
 
-print("\nMédia: %.1f", media)
+print(f"Média: {media}")
