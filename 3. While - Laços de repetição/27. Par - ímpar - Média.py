@@ -8,8 +8,8 @@ somaimpar = 0
 impar = 0
 mediaPar = 0
 mediaImpar = 0
-mediaGeral = 0
 contadorGeral = 0
+
 while True:
     numero = int(input("Digite um numero: "))
 
@@ -28,7 +28,8 @@ while True:
             time.sleep(1)
             os.system("clear")
         else:
-            break
+            if numero == 0:
+                break
 
 somaGeral = somaPar + somaimpar
 mediaGeral = somaGeral / contadorGeral
