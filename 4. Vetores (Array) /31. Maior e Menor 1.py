@@ -11,8 +11,9 @@ QUANTIDADE_NUMEROS = 5
 for i in range(QUANTIDADE_NUMEROS):
     numero = int(input("Digite um número: "))
     numeros.append(numero)
-    maiorNumero = max(maiorNumero, numero)
-    menorNumero = min(menorNumero, numero)
+
+    maiorNumero = max(numeros)
+    menorNumero = min(numeros)
 
 for i, numero in enumerate(numeros):
     print(f"{i+1}º Números: {numero}")
