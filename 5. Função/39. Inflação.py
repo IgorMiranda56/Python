@@ -7,15 +7,15 @@ def cabecalho():
     print("=== ===== ===")
 
 def inflacionar(valor):
-    preco = 0
-    if produto < 100:
-        preco10 = preco * 0.01
-        precoTotal10 = preco - preco10 
+    if preco < 100:
+        desconto10 = preco * 0.01
+        precoTotal10 = preco - desconto10 
     else:
-        preco20 = preco * 0.02
-    return 
-produto = int(input("Digite o preço produto:"))
-precoProduto.append(produto)
+        desconto20 = preco * 0.02
+        precoTotal20 = preco - desconto20
+    return precoTotal
+
+preco = int(input("Digite o preço produto:"))
 
 precoTotal = inflacionar(precoProduto)
 
