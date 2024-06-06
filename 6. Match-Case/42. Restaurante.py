@@ -1,4 +1,5 @@
 import os
+import time
 
 prato = ""
 valor = 0
@@ -35,8 +36,7 @@ while True:
             valor = 5.00
             break
         case _:
-            print("Opção inválida")
+            time.sleep(2)
 
 print(f"Prato - {prato}")
 print(f"Preço - R${valor}")
-
