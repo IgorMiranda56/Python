@@ -84,3 +84,8 @@ while True:
                 break
         case _:
             time.sleep(2)
+    tenteNovamente = str(input("Deseja adicionar outra opção? (S/N):"))
+    tenteNovamente = tenteNovamente.upper()
+    if tenteNovamente != "S":
+        time.sleep(2)
+        continue
