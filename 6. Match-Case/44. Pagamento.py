@@ -4,7 +4,6 @@ import time
 preco = 0
 
 while True: 
-
     print("1 - Pagamento á vista.")
     print("2 - Pagamento á prazo.")
     opcao = int(input("Digite uma opção: "))
@@ -36,8 +35,3 @@ else:
     print(f"Quantidade de parcelas: {quantidadeParcela}")
     print(f"Valor da parcela: {valorParcela}")
 print(f"Total á pagar: {TotalPagar}")
-
-
-
-
-
