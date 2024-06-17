@@ -1,11 +1,9 @@
 import os
-#from dataclasses import dataclass
 
 def cabecalho():
     os.system("cls || clear")
     print("=== SENAI ===")
 
-#@dataclass
 class Livro:
     def __init__(self, nomeTitulo, nomeAutor, numeroPaginas: int, precoLivro: float):
         self.titulo = nomeTitulo
