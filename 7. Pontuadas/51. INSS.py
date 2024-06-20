@@ -17,7 +17,7 @@ def calculoInss(salarioBase):
         descontoInss = 854.36
     return descontoInss
     
-def calculoImpostoRenda(salarioBase):
+def calculoImpostoRenda(salarioBase, quantidadeDependentes):
     if salarioBase > 2259.20 and salarioBase <= 2826.65:
         descontoImpostoRenda = salarioBase * 0.075
         deducaoImposto = quantidadeDependentes * 189.59
@@ -31,7 +31,7 @@ def calculoImpostoRenda(salarioBase):
         deducaoImposto = quantidadeDependentes * 189.59
         descontoImpostoRendaTotal = descontoImpostoRenda + deducaoImposto 
     else: 
-        descontoImpostoRenda = salarioBase * 0.0275
+        descontoImpostoRenda = salarioBase * 0.275
         deducaoImposto = quantidadeDependentes * 189.59
         descontoImpostoRendaTotal = descontoImpostoRenda + deducaoImposto
     return descontoImpostoRendaTotal
@@ -43,17 +43,17 @@ def calculoValeTransporte(salarioBase):
         descontoValeTransporte = 0
     return descontoValeTransporte
     
-def calculoValeRefeicao(salarioBase):
-    descontoValeRefeicao = valeRefeicao * 0.20
+def calculoValeRefeicao(valeRefeicao):
+    descontoValeRefeicao = valeRefeicao * 0.2
     return descontoValeRefeicao
     
-def calculoPlanoSaude(salarioBase):
+def calculoPlanoSaude(quantidadeDependentes):
     if perguntaPlanoSaude == 's':
         descontoPlanoSaude = 150
         descontoDependente = descontoPlanoSaude * quantidadeDependentes
         descontoPlanoSaudeTotal = descontoDependente + descontoPlanoSaude
     else: 
-        descontoPlanoSaudeTotal = 0
+        descontoPlanoSaudeTotal = 150
     return descontoPlanoSaudeTotal
 
 while True:   
@@ -62,16 +62,9 @@ while True:
     senha = input("Digite sua senha: ")
     if matricula == "789" and senha == "123":
         salarioBase = float(input("Digite seu salário: "))
-        pergunteValeTransporte = str(input("Deseja incluir vale transporte (s/n)? "))
+        pergunteValeTransporte = str(input("Deseja receber vale transporte (s/n)? "))
         pergunteValeTransporte = pergunteValeTransporte.lower()
-        if pergunteValeTransporte == 's':
-            valeRefeicao = float(input("Qual o valor do vale refeição? "))
-            break    
-        elif pergunteValeTransporte == 'n':
-            valeRefeicao = 0
-            break
-        else:
-            print("Digite s ou n.")
+        valeRefeicao = float(input("Qual o valor do vale refeição? "))
         break
     else:
         cabecalho()
@@ -89,16 +82,17 @@ while True:
         print("Digite s ou n.")
 
 if pergunteValeTransporte == 's':
-    descontoTotal = calculoInss(salarioBase) + calculoImpostoRenda(salarioBase) + calculoValeTransporte(salarioBase) + calculoValeRefeicao(salarioBase) + calculoPlanoSaude(salarioBase)
+    descontoTotal = calculoInss(salarioBase) + calculoImpostoRenda(salarioBase, quantidadeDependentes) + calculoValeTransporte(salarioBase) + calculoValeRefeicao(valeRefeicao) + calculoPlanoSaude(quantidadeDependentes)
 else:
-    descontoTotal = calculoInss(salarioBase) + calculoImpostoRenda(salarioBase) + calculoValeRefeicao(salarioBase) + calculoPlanoSaude(salarioBase)
+    descontoTotal = calculoInss(salarioBase) + calculoImpostoRenda(salarioBase, quantidadeDependentes) + calculoValeRefeicao(valeRefeicao) + calculoPlanoSaude(quantidadeDependentes)
     
 salarioLiquido = salarioBase - descontoTotal
 cabecalho()
 print(f"salário Base: {salarioBase}")
 print(f"INSS: {calculoInss(salarioBase)}")
-print(f"Imposto de renda: {calculoImpostoRenda(salarioBase)}")
-print(f"Vale transporte: {calculoValeRefeicao(salarioBase)}")
-print(f"Vale refeição: {calculoValeTransporte(salarioBase)}")
-print(f"Plano saúde: {calculoPlanoSaude(salarioBase)}")
+print(f"Imposto de renda: {calculoImpostoRenda(salarioBase, quantidadeDependentes)}")
+if pergunteValeTransporte == 'S':
+    print(f"Vale refeição: {calculoValeTransporte(salarioBase)}")
+print(f"Vale transporte: {calculoValeRefeicao(valeRefeicao)}")
+print(f"Plano saúde: {calculoPlanoSaude(quantidadeDependentes)}")
 print(f"Salário líquido: {salarioLiquido:.2f}")
